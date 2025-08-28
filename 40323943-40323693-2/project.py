@@ -64,3 +64,30 @@ print("phi(n):", phi_n)
 print("e:", e)
 print("d:", d)
 
+def encrypt(msg, e, n):
+    return pow(msg, e, n)
+
+def decrypt(cipher, d, n):
+    return pow(cipher, d, n)
+
+message = 123
+cipher = encrypt(message, e, n)
+decrypted = decrypt(cipher, d, n)
+
+print("Original number:", message)
+print("Encrypted:", cipher)
+print("Decrypted:", decrypted)
+
+def encrypt(msg, e, n):
+    return pow(msg, e, n)
+
+def decrypt(cipher, d, n):
+    return pow(cipher, d, n)
+
+message = 123
+cipher = encrypt(message, e, n)
+decrypted = decrypt(cipher, d, n)
+
+print("Original number:", message)
+print("Encrypted:", cipher)
+print("Decrypted:", decrypted)
