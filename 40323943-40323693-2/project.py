@@ -35,3 +35,31 @@ q = generate_prime(8)
 while p == q:
     q = generate_prime(8)
 print("Primes:", p, q)
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def mod_inverse(e, phi):
+    old_r, r = phi, e
+    old_s, s = 1, 0
+    old_t, t = 0, 1
+    while r != 0:
+        quotient = old_r // r
+        old_r, r = r, old_r - quotient * r
+        old_s, s = s, old_s - quotient * s
+        old_t, t = t, old_t - quotient * t
+    return old_t % phi
+
+n = p * q
+phi_n = (p - 1) * (q - 1)
+e = 3
+while gcd(e, phi_n) != 1:
+    e += 2
+d = mod_inverse(e, phi_n)
+
+print("n:", n)
+print("phi(n):", phi_n)
+print("e:", e)
+print("d:", d)
