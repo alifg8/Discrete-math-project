@@ -91,3 +91,24 @@ decrypted = decrypt(cipher, d, n)
 print("Original number:", message)
 print("Encrypted:", cipher)
 print("Decrypted:", decrypted)
+def text_to_nums(text):
+    return [ord(c) for c in text]
+
+def nums_to_text(nums):
+    return ''.join(chr(n) for n in nums)
+
+def encrypt_text(text, e, n):
+    nums = text_to_nums(text)
+    return [encrypt(num, e, n) for num in nums]
+
+def decrypt_text(cipher_list, d, n):
+    nums = [decrypt(num, d, n) for num in cipher_list]
+    return nums_to_text(nums)
+
+plaintext = "HELLO"
+cipher_list = encrypt_text(plaintext, e, n)
+decrypted_text = decrypt_text(cipher_list, d, n)
+
+print("Original text:", plaintext)
+print("Encrypted list:", cipher_list)
+print("Decrypted text:", decrypted_text)
